@@ -1,10 +1,14 @@
-// components
-import Header from "../components/Header"
-
+import Mainstructure from "../components/Mainstructure"
 
 const Home = () => {
   return (
-    <div><Header /></div>
+    <>
+      <Mainstructure
+        title={"Summarize Articles with"}
+        highlightedText={"OpenAI GPT-4"}
+        description={"Simplify your reading with Summize, an open-source article summarizer that transforms lengthy articles into clear and concise summaries"}
+      />
+    </>
   )
 }
 

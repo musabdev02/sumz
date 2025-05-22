@@ -1,3 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 @import "tailwindcss";
-*{font-family: "Inter Tight", sans-serif;}
+*{font-family: "Bricolage Grotesque", sans-serif;}
+/* custom */
+.grid-bg::before{
+     content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('./assets/grid.svg') center center;
+    z-index: 1;
+    pointer-events: none; 
+}
+.test::after{
+    content: "";
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 5;
+    z-index: -1;
+    filter: blur(300px) saturate(150%);
+}
+.test::before{
+    content: "";
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    filter: blur(300px) saturate(150%);
+}

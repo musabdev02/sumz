@@ -4,9 +4,9 @@ const Home = () => {
   return (
     <>
       <Mainstructure
-        title={"Summarize Articles with"}
-        highlightedText={"OpenAI GPT-4"}
-        description={"Simplify your reading with Summize, an open-source article summarizer that transforms lengthy articles into clear and concise summaries"}
+        title={"Summarize Any Article"}
+        highlightedText={"Instantly"}
+        description={"Paste any article link and instantly get a clear, concise summary. Perfect for quick reading, note-taking, or content understanding."}
       />
     </>
   )

@@ -1,6 +1,7 @@
 // component
 import Userinput from "./Userinput"
 import Result from "./Result"
+import Loader from "./Loader"
 
 interface MainstructureProps {
   title: string,
@@ -19,7 +20,8 @@ const Mainstructure = ({ title, highlightedText, description }: MainstructurePro
         </div>
         {/* input */}
         <Userinput />
-        <Result />
+        <Loader />
+        {/* <Result /> */}
       </div>
     </>
 

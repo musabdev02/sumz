@@ -18,7 +18,7 @@ const Header = () => {
                     </div>
                     <div className="flex items-center gap-1">
                        {
-                        navList.map(item =>  <p key={item.title} className="px-2 py-1 rounded-md hover:bg-gray-100 text-sm">{item.title}</p>)
+                        navList.map(item =>  <p key={item.title} className="px-2 py-1 cursor-pointer rounded-md hover:bg-gray-100 text-sm">{item.title}</p>)
                        }
                     </div>
                     <button className="bg-black rounded-full py-2 px-5 text-sm text-white">Github</button>

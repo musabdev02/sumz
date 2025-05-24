@@ -11,9 +11,9 @@ const Home = () => {
   const { input, setLoading } = useInput();
 
   const summarizeArticle = async (): Promise<void> => {
-    setLoading(true);
     if (input) {
-      const output = await UseAiTool('Summarize the following article in 8-12 sentences, keeping the main points intact', input);
+      setLoading(true);
+      const output = await UseAiTool('Summarize the following article in 6-8 sentences, keeping the main points intact', input);
       setLoading(false);
       setResult(output);
     }

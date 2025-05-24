@@ -1,8 +1,22 @@
-import { Outlet } from "react-router-dom"
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom"
 // components
 import Header from "./Header"
+// context
+import { useResult } from "../contextAPI/ResultContext";
+import { useInput } from "../contextAPI/InputContext";
 
 const Layout = () => {
+    const { setResult } = useResult();
+    const { setInput } = useInput();
+    const location = useLocation();
+
+
+    useEffect(() => {
+        setResult("");
+        setInput("")
+    }, [location.pathname, setResult, setInput])
+
     return (
         <div className="relative">
             <div className="fixed inset-0 z-0 pointer-events-none">

@@ -13,12 +13,13 @@ const Home = () => {
 
   const summarizeArticle = async (): Promise<void> => {
 
-    if(!input || !isValidUrl(input)){
+    if (!input || !isValidUrl(input)) {
       alert('Please enter a valid URL.');
       return;
     }
 
     if (input) {
+      setResult("");
       setLoading(true);
       const output = await UseAiTool('Summarize the following article in 6-8 sentences, keeping the main points intact', input);
       setLoading(false);
@@ -33,6 +34,8 @@ const Home = () => {
         title={"Summarize Any Article"}
         highlightedText={"Instantly"}
         description={"Paste any article link and instantly get a clear, concise summary. Perfect for quick reading, note-taking, or content understanding."}
+        colors={["#bb7e32", "#ffaa40"]}
+        mode={"input"}
         func={summarizeArticle}
       />
     </>

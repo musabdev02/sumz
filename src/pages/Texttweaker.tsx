@@ -28,6 +28,7 @@ const Texttweaker = () => {
             description={"Rewrite any text in a smarter, more fluent way without changing its meaning. Ideal for improving clarity, avoiding repetition, or rewording content professionally."}
             colors={["#e940ff", "#983e9d"]}
             mode={"textarea"}
+            resultTitle={"Enhanced Version"}
             func={textTweaker}
         />
     )

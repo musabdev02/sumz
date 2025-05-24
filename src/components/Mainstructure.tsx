@@ -14,10 +14,11 @@ interface MainstructureProps {
   description: string,
   func: () => void;
   colors: string[];
-  mode: Option
+  mode: Option;
+  resultTitle?: string;
 }
 
-const Mainstructure = ({ title, highlightedText, description, func, colors, mode }: MainstructureProps) => {
+const Mainstructure = ({ title, highlightedText, description, func, colors, mode, resultTitle }: MainstructureProps) => {
   const { result } = useResult();
   const { loading } = useInput();
 
@@ -28,7 +29,7 @@ const Mainstructure = ({ title, highlightedText, description, func, colors, mode
         <div className="text-center">
           <h2 className="text-center text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold ">{title}
             <br />
-            <span className="bg-gradient-to-r from-[${colors[0]}] to-[${colors[1]}] bg-clip-text text-transparent"
+            <span className="bg-clip-text text-transparent"
               style={{
                 backgroundImage: `linear-gradient(to right, ${colors[0]}, ${colors[1]})`,
               }}
@@ -41,7 +42,7 @@ const Mainstructure = ({ title, highlightedText, description, func, colors, mode
         {/* input */}
         <Userinput func={func} mode={mode} />
         {loading && <Loader />}
-        {result && <Result />}
+        {result && <Result title={resultTitle} />}
       </div>
     </>
 

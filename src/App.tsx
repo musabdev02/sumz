@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 // tools
 import Summarizearticle from './pages/Summarizearticle'
 import Texttweaker from './pages/Texttweaker'
+import Bloggenerator from './pages/Bloggenerator'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Route path='/' element={<Layout />}>
        <Route index element={<Summarizearticle />} />
        <Route path='text-tweaker' element={<Texttweaker />} />
+       <Route path='blog-generator' element={<Bloggenerator />} />
       </Route>
     </Routes>
   )

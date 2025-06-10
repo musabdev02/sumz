@@ -19,11 +19,21 @@ const Home = () => {
     }
 
     if (input) {
-      setResult("");
-      setLoading(true);
-      const output = await UseAiTool('Summarize the following article in 6-8 sentences, keeping the main points intact', input);
-      setLoading(false);
-      setResult(output);
+      try {
+        setResult("");
+        setLoading(true);
+
+        const output = await UseAiTool(
+          "Summarize the following article in 6-8 sentences, keeping the main points intact",
+          input
+        );
+
+        setResult(output);
+      } catch (error) {
+        setResult(`Something went wrong while summarizing. ${error}`);
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -34,6 +44,7 @@ const Home = () => {
         title={"Summarize Any Article"}
         highlightedText={"Instantly"}
         description={"Paste any article link and instantly get a clear, concise summary. Perfect for quick reading, note-taking, or content understanding."}
+        placeholder={"Paste the article link"}
         colors={["#bb7e32", "#ffaa40"]}
         mode={"input"}
         func={summarizeArticle}

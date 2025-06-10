@@ -25,7 +25,7 @@ const Layout = () => {
                 <div className="absolute w-[150px] sm:w-[350px] h-[150px] sm:h-[350px] bottom-0 right-0 blur-[100px] sm:blur-[300px] saturate-[150%] bg-[#855afc]"></div>
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 ">
                 <Header />
                 <div className="max-w-[80rem] mx-auto p-4 mt-8">
                     <Outlet />

@@ -5,17 +5,20 @@ import Header from "./Header"
 // context
 import { useResult } from "../contextAPI/ResultContext";
 import { useInput } from "../contextAPI/InputContext";
+import { useError } from "../contextAPI/ErrorContext";
 
 const Layout = () => {
     const { setResult } = useResult();
     const { setInput } = useInput();
+    const { setUError } = useError();
     const location = useLocation();
 
 
     useEffect(() => {
         setResult("");
-        setInput("")
-    }, [location.pathname, setResult, setInput])
+        setInput("");
+        setUError("");
+    }, [location.pathname, setResult, setInput, setUError])
 
     return (
         <div className="relative">

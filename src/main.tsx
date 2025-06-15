@@ -6,14 +6,17 @@ import { BrowserRouter } from 'react-router-dom'
 // context
 import { ResultProvider } from './contextAPI/ResultContext.tsx'
 import { InputProvider } from './contextAPI/InputContext.tsx'
+import { ErrorProvider } from './contextAPI/ErrorContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ResultProvider>
-        <InputProvider>
-          <App />
-        </InputProvider>
+        <ErrorProvider>
+          <InputProvider>
+            <App />
+          </InputProvider>
+        </ErrorProvider>
       </ResultProvider>
     </BrowserRouter>
   </StrictMode>,

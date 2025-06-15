@@ -2,18 +2,16 @@ import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom"
 // type
 import type { navListType } from "./Header"
-// images
-import moon from '../assets/moon.svg'
-import sun from '../assets/sun.svg'
+// components
+import Thememode from "./Thememode";
 
 interface MobileListProps {
   navList: navListType[];
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
-  isDark: boolean
 }
 
-const Mobilelist = ({ navList, setIsOpen, isOpen, isDark }: MobileListProps) => {
+const Mobilelist = ({ navList, setIsOpen, isOpen }: MobileListProps) => {
   const mobileListRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
@@ -42,9 +40,7 @@ const Mobilelist = ({ navList, setIsOpen, isOpen, isDark }: MobileListProps) => 
       }
       <a href="https://github.com/musabdev02/sumz" target="_blank"><button className="mt-4 bg-black rounded-full py-2 px-5 text-sm text-white cursor-pointer transition-all border border-black hover:bg-transparent hover:text-black">Github</button></a>
       <div className="m-3">
-        {
-        isDark ? <img src={sun} alt="light_mode" title="Light Mode" className="cursor-pointer dark:invert-[1]" /> : <img src={moon} alt="dark_mode" title="Dark mode" className="cursor-pointer dark:invert-[1]" />
-      }
+        <Thememode/>
       </div>
       
     </div >

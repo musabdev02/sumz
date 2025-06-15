@@ -4,12 +4,14 @@ import { UseAiTool } from "../hooks/useAiTool"
 // context
 import { useResult } from "../contextAPI/ResultContext";
 import { useInput } from "../contextAPI/InputContext";
+import { useError } from "../contextAPI/ErrorContext";
 // helper
 import { isValidUrl } from "../helper";
 
 const Home = () => {
   const { setResult } = useResult();
   const { input, setLoading } = useInput();
+  const { setUError } = useError();
 
   const summarizeArticle = async (): Promise<void> => {
 
@@ -21,6 +23,7 @@ const Home = () => {
     if (input) {
       try {
         setResult("");
+        setUError("");
         setLoading(true);
 
         const output = await UseAiTool(
@@ -29,8 +32,11 @@ const Home = () => {
         );
 
         setResult(output);
-      } catch (error) {
-        setResult(`Something went wrong while summarizing. ${error}`);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setResult("");
+          setUError(error.message)
+    }
       } finally {
         setLoading(false);
       }

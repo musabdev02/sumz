@@ -4,19 +4,32 @@ import { UseAiTool } from "../hooks/useAiTool"
 // context
 import { useResult } from "../contextAPI/ResultContext";
 import { useInput } from "../contextAPI/InputContext";
+import { useError } from '../contextAPI/ErrorContext'
 
 
 const Texttweaker = () => {
     const { setResult } = useResult();
     const { input, setLoading } = useInput();
+    const { setUError } = useError();
 
     const textTweaker = async (): Promise<void> => {
         if (input) {
-            setResult("");
-            setLoading(true);
-            const output = await UseAiTool('Paraphrase the following text in simpler words while preserving the original meaning', input);
-            setLoading(false);
-            setResult(output);
+            try {
+                setResult("");
+                setLoading(true);
+                const output = await UseAiTool('Paraphrase the following text in simpler words while preserving the original meaning', input);
+                setResult(output);
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    setResult("");
+                    setUError(error.message)
+                }
+            } finally {
+                setLoading(false);
+
+            }
+        } else {
+            alert("Textarea can't be empty!");
         }
     }
 

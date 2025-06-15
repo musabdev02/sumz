@@ -1,10 +1,13 @@
 // component
 import Userinput from "./Userinput"
 import Result from "./Result"
+import Error from "./Error"
 import Loader from "./Loader"
 // context
 import { useResult } from "../contextAPI/ResultContext"
 import { useInput } from "../contextAPI/InputContext";
+import { useError } from "../contextAPI/ErrorContext"
+import { useEffect } from "react"
 
 type Option = "input" | "textarea";
 
@@ -22,7 +25,12 @@ interface MainstructureProps {
 const Mainstructure = ({ title, highlightedText, description, placeholder, func, colors, mode, resultTitle }: MainstructureProps) => {
   const { result } = useResult();
   const { loading } = useInput();
+  const { uError } = useError();
 
+
+  useEffect(() => {
+    console.log(uError)
+  }, [uError])
   return (
     <>
       <div className="sm:w-[90%] md:w-[70%] mx-auto">
@@ -44,6 +52,7 @@ const Mainstructure = ({ title, highlightedText, description, placeholder, func,
         <Userinput func={func} mode={mode} placeholder={placeholder || ""} />
         {loading && <Loader />}
         {result && <Result title={resultTitle} />}
+        {uError && <Error />}
       </div>
     </>
 
